@@ -32,7 +32,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t todo-get-tasks-api:v1 ./GetTaskTodoMicroservice
+          docker build -t todo-get-tasks-api:v1 ./GetTasksTodoMicroservice
 
       - name: Tag Docker Image for ACR
         run: |
