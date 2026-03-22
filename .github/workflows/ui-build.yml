@@ -12,7 +12,7 @@ jobs:
     runs-on: self-hosted
     
     env:
-      IMAGE_NAME: todo-add-tasks-api
+      IMAGE_NAME: todo-ui-tasks-api
       IMAGE_TAG: v1
       ACR_NAME: acrrg3
       ACR_LOGIN_SERVER: acrrg3.azurecr.io
