@@ -1,7 +1,7 @@
 name: Build and Push to ACR
 
 on:
-  workflow_dispatch:  # Isse tum manually GitHub se trigger kar sakte ho
+  workflow_dispatch:
 
 permissions:
   id-token: write
@@ -28,16 +28,16 @@ jobs:
 
       - name: Log in to ACR
         run: |
-          az acr login --name $ACR_NAME
+          az acr login --name $env:ACR_NAME
 
       - name: Build Docker Image
         run: |
-          docker build -t $IMAGE_NAME:$IMAGE_TAG .
+          docker build -t $env:IMAGE_NAME:$env:IMAGE_TAG .
 
       - name: Tag Docker Image for ACR
         run: |
-          docker tag $IMAGE_NAME:$IMAGE_TAG $ACR_LOGIN_SERVER/$IMAGE_NAME:$IMAGE_TAG
+          docker tag $env:IMAGE_NAME:$env:IMAGE_TAG $env:ACR_LOGIN_SERVER/$env:IMAGE_NAME:$env:IMAGE_TAG
 
       - name: Push Docker Image to ACR
         run: |
-          docker push $ACR_LOGIN_SERVER/$IMAGE_NAME:$IMAGE_TAG
+          docker push $env:ACR_LOGIN_SERVER/$env:IMAGE_NAME:$env:IMAGE_TAG
