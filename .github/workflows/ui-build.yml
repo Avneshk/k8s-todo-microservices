@@ -22,11 +22,9 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Azure Login
-        uses: Azure/login@v2.3.0
+        uses: azure/login@v2
         with:
-          client-id: 89740930-9384-4c7d-9baa-ba3decd4cf46
-          tenant-id: d1eccdf5-b342-4b78-ab32-7f11700de7e4
-          subscription-id: 09250277-3461-4a76-b62f-8499b8d4c172
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Log in to ACR
         run: |
