@@ -32,7 +32,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t todo-delete-tasks-api:v1 .
+          docker build -t todo-delete-tasks-api:v1 ./DeleteTaskTodoMicroservice
 
       - name: Tag Docker Image for ACR
         run: |
