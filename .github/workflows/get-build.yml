@@ -32,12 +32,12 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t %IMAGE_NAME%:%IMAGE_TAG% .
+          docker build -t todo-get-tasks-api:v1 .
 
       - name: Tag Docker Image for ACR
         run: |
-          docker tag %IMAGE_NAME%:%IMAGE_TAG% %ACR_LOGIN_SERVER%/%IMAGE_NAME%:%IMAGE_TAG%
+          docker tag todo-get-tasks-api:v1 acrrg3.azurecr.io/todo-get-tasks-api:v1
 
       - name: Push Docker Image to ACR
         run: |
-          docker push %ACR_LOGIN_SERVER%/%IMAGE_NAME%:%IMAGE_TAG%
+          docker push acrrg3.azurecr.io/todo-get-tasks-api:v1
